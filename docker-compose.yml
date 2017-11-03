@@ -1,0 +1,12 @@
+amqp:
+  image: rabbitmq:3
+  hostname: amqp
+  environment:
+    - RABBITMQ_NODENAME=amqp
+    - RABBITMQ_CONFIG_FILE=/fixtures/rabbitmq/rabbitmq
+    - RABBITMQ_ENABLED_PLUGINS_FILE=/fixtures/rabbitmq/enabled_plugins
+  volumes:
+    - ./fixtures:/fixtures:ro
+  ports:
+    - "5672:5672"
+    - "15672:15672"
